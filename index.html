@@ -104,7 +104,22 @@
         display: flex;
       }
     }
+ @media (max-width: 800px) {
+    /* other mobile tweaks… */
 
+    /* <— Add this */
+    .panel {
+      flex-direction: column;
+    }
+    .panel .info,
+    .panel .form {
+      flex: 1 1 100%;
+      width: 100%;
+    }
+    .panel .form {
+      margin-top: 1rem;
+    }
+ }
     /* ==== Sections & Elements ==== */
     section {
       padding: 4rem 2%;
