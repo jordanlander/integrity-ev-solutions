@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Integrity EV Solutions</title>
+  
+  <!-- Load Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ==== Variables & Reset ==== */
+    :root {
+      --nav-height: 60px;
+      --color-primary: #005F2E;
+      --color-secondary: #CFE8D6;
+      --color-accent: #FFC20A;
+      --white: #FFFFFF;
+      --black: #333333;
+    }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-height);
+    }
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    /* ==== Sticky Nav + Mobile Toggle ==== */
+    input#nav-toggle { display: none; }
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      color: var(--white);
+      cursor: pointer;
+      padding: 0 2%;
+      height: var(--nav-height);
+      line-height: var(--nav-height);
+    }
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: var(--color-primary);
+      z-index: 1000;
+    }
+    .site-nav .container {
+      max-width: 1200px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 2%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-nav .brand {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 1.25rem;
+    }
+    .site-nav .brand .tagline {
+      display: block;
+      font-family: 'Lato', sans-serif;
+      font-size: .75rem;
+      color: var(--color-secondary);
+      line-height: 1;
+    }
+    .site-nav .menu {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .site-nav .menu a {
+      font-family: 'Lato', sans-serif;
+      color: var(--white);
+      text-decoration: none;
+      padding: .5rem;
+      transition: color .2s;
+    }
+    .site-nav .menu a:hover {
+      color: var(--color-accent);
+    }
+    .site-nav .menu .cta {
+      background: var(--color-accent);
+      color: var(--color-primary);
+      border-radius: 4px;
+      padding: .5rem 1rem;
+      font-weight: 700;
+    }
+    @media (max-width: 768px) {
+      .hamburger { display: block; }
+      .site-nav .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0; right: 0;
+        background: var(--color-primary);
+        padding-bottom: 1rem;
+      }
+      input#nav-toggle:checked ~ .site-nav .menu {
+        display: flex;
+      }
+    }
+
+    /* ==== Sections & Elements ==== */
+    section {
+      padding: 4rem 2%;
+      max-width: 1200px;
+      margin: var(--nav-height) auto 0 auto;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: .5rem;
+    }
+    p.intro {
+      font-family: 'Lato', sans-serif;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    /* Hero */
+    #hero {
+      background: linear-gradient(135deg, var(--color-primary) 0%, #009955 100%);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 0;
+    }
+    #hero .inner {
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    #hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    #hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    #hero .cta-hero {
+      background: var(--color-accent);
+      color: var(--color-primary);
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* Core Values */
+    #core-values .values-grid {
+      display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between;
+    }
+    .value-card {
+      flex:1 1 calc(25% - 1rem);
+      background:var(--color-secondary);
+      border-radius:8px; padding:1.5rem; text-align:center;
+    }
+    .value-card .icon {
+      font-size:2rem; background:var(--color-primary); color:var(--white);
+      width:3rem; height:3rem; border-radius:50%; display:inline-flex;
+      align-items:center; justify-content:center; margin-bottom:1rem;
+    }
+    .value-card h3 { margin-bottom:.5rem; }
+    .value-card p { color:var(--black); }
+
+    /* Services */
+    #services .services-grid {
+      display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between;
+    }
+    .service-card {
+      flex:1 1 calc(50% - 1rem);
+      background:var(--white); border-radius:8px; padding:1.5rem; text-align:left;
+    }
+    .service-card .icon-circle {
+      width:3rem; height:3rem; border-radius:50%;
+      background:var(--color-accent); display:inline-flex; align-items:center;
+      justify-content:center; font-size:1.5rem; margin-bottom:1rem;
+    }
+    .service-card h3 { margin-bottom:.5rem; }
+    .service-card ul { padding-left:1.2rem; margin-bottom:1rem; }
+    .service-card .btn {
+      background:var(--color-primary); color:var(--white);
+      padding:.5rem 1rem; border-radius:4px; font-weight:700;
+      text-decoration:none;
+    }
+
+    /* About */
+    #about {
+      display:flex; flex-wrap:wrap; gap:2rem; align-items:center; text-align:left;
+    }
+    #about .about-image, #about .about-content {
+      flex:1 1 calc(50% - 1rem);
+    }
+    .image-circle {
+      width:200px; height:200px; border-radius:50%;
+      background:var(--color-secondary); margin:0 auto;
+      display:flex; align-items:center; justify-content:center;
+      font-size:4rem;
+    }
+    .why-choose {
+      background:var(--color-secondary); padding:1.5rem;
+      border-radius:8px; margin-top:1rem;
+    }
+    .why-choose ul { list-style:none; padding-left:0; }
+    .why-choose li { margin-bottom:.5rem; }
+    .why-choose li::before { content:"✔️"; margin-right:.5rem; }
+
+    /* Process */
+    .process-grid {
+      display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between;
+    }
+    .process-step {
+      flex:1 1 calc(25% - 1rem);
+      background:var(--white); border-radius:8px; padding:1.5rem; text-align:center;
+    }
+    .step-circle {
+      width:3rem; height:3rem; border-radius:50%;
+      background:var(--color-accent); color:var(--color-primary);
+      display:inline-flex; align-items:center; justify-content:center;
+      font-weight:700; margin-bottom:1rem;
+    }
+
+    /* Testimonials */
+    #testimonials {
+      background:var(--color-primary); color:var(--white);
+    }
+    .testimonials-grid {
+      display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;
+      margin-bottom:2rem;
+    }
+    .testimonial-card {
+      flex:1 1 calc(33.333% - 1rem);
+      background:var(--white); border-radius:8px; padding:1.5rem;
+      text-align:left; color:var(--black);
+    }
+    .avatar {
+      width:3rem; height:3rem; border-radius:50%;
+      background:var(--color-accent); color:var(--color-primary);
+      display:inline-flex; align-items:center; justify-content:center;
+      font-weight:700; margin-bottom:1rem;
+    }
+    .btn-cta {
+      background:var(--color-accent); color:var(--color-primary);
+      padding:.75rem 1.5rem; border-radius:4px; font-weight:700;
+      text-decoration:none;
+    }
+
+    /* FAQs */
+    #faqs {
+      background:var(--color-secondary);
+    }
+    #faqs details {
+      background:var(--white); border-radius:8px;
+      margin:.5rem auto; padding:1rem 1.5rem; max-width:700px;
+    }
+    #faqs summary {
+      font-family:'Playfair Display', serif; font-weight:700;
+      color:var(--color-primary); cursor:pointer; position:relative;
+      padding-right:1.5rem;
+    }
+    #faqs summary::-webkit-details-marker { display:none; }
+    #faqs summary:after { content:'▾'; position:absolute; right:0; }
+    #faqs details[open] summary:after { content:'▴'; }
+
+    /* Receive */
+    #receive {
+      background:var(--color-secondary);
+    }
+    .panel {
+      display:flex; flex-wrap:wrap; max-width:900px; margin:0 auto;
+      border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    }
+    .info {
+      flex:1; background:var(--color-primary); color:var(--white);
+      padding:2rem;
+    }
+    .form {
+      flex:1; background:var(--white); padding:2rem;
+    }
+
+    /* Contact */
+    .contact-cards {
+      display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;
+    }
+    .contact-card {
+      flex:1 1 calc(33.333% - 1rem);
+      background:var(--color-secondary); border-radius:8px;
+      padding:1.5rem; text-align:center;
+    }
+    .contact-card .icon {
+      font-size:1.5rem; background:var(--color-accent);
+      color:var(--color-primary); width:3rem; height:3rem;
+      border-radius:50%; display:inline-flex;
+      align-items:center; justify-content:center;
+      margin-bottom:1rem;
+    }
+
+    /* Footer */
+    .site-footer {
+      background:#005F2E; color:#FFFFFF;
+      padding:2rem 1rem; font-family:'Lato',sans-serif;
+    }
+    .footer-container {
+      max-width:1200px; margin:0 auto;
+      display:flex; flex-wrap:wrap;
+      justify-content:space-between; align-items:center; gap:1rem;
+    }
+    .footer-phone {
+      font-family:'Playfair Display',serif;
+      font-size:1.5rem; font-weight:700; color:#FFC20A;
+    }
+    .footer-phone a { color:inherit; text-decoration:none; }
+    .footer-nav a {
+      color:#FFFFFF; text-decoration:none; margin:0 .5rem; font-weight:700;
+    }
+    .footer-nav a:hover { color:#FFC20A; }
+    .footer-copy { font-size:.875rem; }
+
+    @media (max-width:800px) {
+      .values-grid,#services .services-grid,.process-grid,
+      .testimonials-grid,.contact-cards,.footer-container {
+        flex-direction:column;
+      }
+      section { padding:2rem 1rem; }
+      #hero { padding:2rem 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Nav Toggle -->
+  <input type="checkbox" id="nav-toggle" />
+  <label for="nav-toggle" class="hamburger">☰</label>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="container">
+      <div class="brand">
+        Integrity EV Solutions
+        <span class="tagline">Family-Owned • Atlanta, GA</span>
+      </div>
+      <div class="menu">
+        <a href="#hero">Home</a>
+        <a href="#core-values">Core Values</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#faqs">FAQs</a>
+        <a href="#receive" class="cta">Get a Quote</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="inner">
+      <h1>Powering Your Journey to a Greener Future</h1>
+      <p>Family-Owned • Atlanta, GA</p>
+      <a href="#receive" class="cta-hero">Get a Free Estimate</a>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section id="core-values">
+    <h2>Our Core Values</h2>
+    <p class="intro">At Integrity EV Solutions, our work is guided by our commitment to these principles</p>
+    <div class="values-grid">
+      <div class="value-card"><div class="icon">🤝</div><h3>Honesty</h3><p>Transparent pricing & honest recommendations.</p></div>
+      <div class="value-card"><div class="icon">🌐</div><h3>Inclusion</h3><p>Welcoming all backgrounds and orientations.</p></div>
+      <div class="value-card"><div class="icon">👪</div><h3>Family</h3><p>We treat clients like part of our own family.</p></div>
+      <div class="value-card"><div class="icon">🔋</div><h3>Clean Energy</h3><p>Passionate about sustainable transportation.</p></div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <p class="intro">Professional EV charger installation for homes and businesses across Atlanta</p>
+    <div class="services-grid">
+      <div class="service-card"><div class="icon-circle">🏠</div><h3>Residential Installation</h3><ul><li>Level 2 home charger installation</li><li>Electrical panel upgrades</li><li>Smart charger setup & configuration</li><li>Rebate & incentive assistance</li></ul><a href="#receive" class="btn">Get a Quote</a></div>
+      <div class="service-card"><div class="icon-circle">🏢</div><h3>Commercial Installation</h3><ul><li>Install DC fast chargers</li><li>Commission & activation</li><li>Troubleshoot/service</li></ul><a href="#receive" class="btn">Get a Quote</a></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About the Lander Family (2022)</h2>
+    <div class="about-image"><div class="image-circle">👨‍👩‍👧‍👦</div></div>
+    <div class="about-content"><p>Founded in 2022 by Jordan and Emily Lander, Integrity EV Solutions began as a passion project to bring sustainable charging solutions to our Atlanta community. What started as weekend installs for friends has grown into a trusted family-run business.</p><p>Our certified electricians share our family’s dedication to clean energy and customer care. We treat every installation as if it were in our own home, ensuring reliable performance and a seamless experience.</p><div class="why-choose"><h3>Why Choose Us?</h3><ul><li>Licensed & insured experts</li><li>5-year workmanship warranty</li><li>Transparent, upfront pricing</li><li>Expertise with all major EV brands</li></ul></div></div>
+  </section>
+
+  <!-- Process -->
+  <section id="process">
+    <h2>Our Installation Process</h2>
+    <div class="process-grid">
+      <div class="process-step"><div class="step-circle">1</div><h3>Consultation</h3><p>We assess your needs and provide a detailed quote.</p></div>
+      <div class="process-step"><div class="step-circle">2</div><h3>Planning</h3><p>We design the optimal installation for your space.</p></div>
+      <div class="process-step"><div class="step-circle">3</div><h3>Installation</h3><p>Our certified technicians complete the work.</p></div>
+      <div class="process-step"><div class="step-circle">4</div><h3>Support</h3><p>We provide ongoing maintenance and assistance.</p></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <p class="intro">Hear from Atlanta homeowners and businesses who’ve worked with us</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card"><div class="avatar">JM</div><p class="name">James Miller</p><p class="role">Buckhead Homeowner</p><p class="quote">“Professional from start to finish—Tesla wall charger installed in hours. Highly recommend!”</p></div>
+      <div class="testimonial-card"><div class="avatar">SR</div><p class="name">Sarah Rodriguez</p><p class="role">Midtown Apartment Complex</p><p class="quote">“Handled permits & installations flawlessly—residents love it!”</p></div>
+      <div class="testimonial-card"><div class="avatar">DW</div><p class="name">David Washington</p><p class="role">Decatur Small Business</p><p class="quote">“Great service and incentives—perfect budget solution!”</p></div>
+    </div>
+    <a href="#receive" class="btn-cta">Join Our Satisfied Customers</a>
+  </section>
+
+  <!-- FAQs -->
+  <section id="faqs">
+    <h2>Frequently Asked Questions</h2>
+    <p class="intro">Everything you need to know about EV charger installation</p>
+    <details><summary>How long does installation typically take?</summary><p>Most residential installs take ~2–4 hours from start to finish.</p></details>
+    <details><summary>Do I need to upgrade my electrical panel?</summary><p>We’ll check your panel’s capacity and only recommend upgrades if necessary.</p></details>
+    <details><summary>What rebates or incentives are available?</summary><p>Enjoy a 30% federal tax credit plus local utility rebates—let us guide you.</p></details>
+    <details><summary>Which EV charger brands do you install?</summary><p>We handle all major brands: Tesla, ChargePoint, JuiceBox, ClipperCreek & more.</p></details>
+    <details><summary>Do you offer warranties on your work?</summary><p>Yes—5-year workmanship warranty plus any manufacturer warranty.</p></details>
+    <a href="#receive" class="btn-cta">Ask Your Question</a>
+  </section>
+
+  <!-- Receive (Estimate) -->
+  <section id="receive">
+    <h2>Get Your Free Estimate</h2>
+    <div class="panel">
+      <div class="info">
+        <h3>Free, No-Obligation Quote</h3>
+        <p>Fill out the form and we’ll be in touch within 24 hours.</p>
+        <ul><li>No obligation quotes</li><li>Transparent pricing</li><li>Expert recommendations</li></ul>
+        <blockquote>“Detailed quote upfront—no surprises. Excellent service.”</blockquote>
+      </div>
+      <div class="form">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLScLKr9jCiiZblJeZ04x-IWetaIsQAat3eLGe8WUqPNklGnpyQ/viewform?embedded=true"
+          width="100%"
+          height="1052"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          style="border:none; border-radius:4px;"
+        >
+          Loading…
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Integrity EV Solutions</h2>
+    <div class="contact-cards">
+      <div class="contact-card"><div class="icon">📞</div><h3>Call or Text</h3><p>470-262-2660</p><p>Mon–Fri: 8 am–6 pm</p></div>
+      <div class="contact-card"><div class="icon">✉️</div><h3>Email</h3><p><a href="mailto:integrityevsolutions@gmail.com">integrityevsolutions@gmail.com</a></p><p>We respond within 24 hours</p></div>
+      <div class="contact-card"><div class="icon">📍</div><h3>Service Area</h3><p>Flowery Branch &amp; Greater Atlanta</p><p>Residential & Commercial</p></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-phone"><a href="tel:4702622660">📞 470-262-2660</a></div>
+      <nav class="footer-nav">
+        <a href="#hero">Home</a>·
+        <a href="#core-values">Core Values</a>·
+        <a href="#services">Services</a>·
+        <a href="#about">About</a>·
+        <a href="#process">Process</a>·
+        <a href="#testimonials">Testimonials</a>·
+        <a href="#faqs">FAQs</a>·
+        <a href="#receive">Get a Quote</a>·
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="footer-copy">© 2025 Integrity EV Solutions. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>
