@@ -28,7 +28,12 @@
       color: var(--black);
       line-height: 1.6;
     }
+!-- Mobile toggle checkbox -->
+<input type="checkbox" id="nav-toggle" />
 
+<!-- Hamburger icon (label tied to the checkbox) -->
+<label for="nav-toggle" class="hamburger">☰</label>
+    
     /* ==== Sticky Nav + Mobile Toggle ==== */
     input#nav-toggle { display: none; }
     .hamburger {
@@ -104,6 +109,37 @@
         display: flex;
       }
     }
+    /* Always hide the actual checkbox */
+#nav-toggle { display: none; }
+
+/* Style the hamburger icon */
+.hamburger {
+  display: block;               /* ensure it’s visible on mobile */
+  position: fixed;
+  top: 0; right: 1rem;          /* float top-right */
+  height: var(--nav-height);
+  line-height: var(--nav-height);
+  z-index: 1100;                /* above the nav */
+  font-size: 1.75rem;
+  cursor: pointer;
+  color: var(--white);
+  background: var(--color-primary);
+  padding: 0 .5rem;
+  border-bottom-left-radius: 4px;
+}
+
+/* Hide the menu by default */
+.site-nav .menu {
+  display: none;
+}
+
+/* When the checkbox is checked, show the menu */
+#nav-toggle:checked ~ .site-nav .menu {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-primary);
+  width: 100%;
+}
  @media (max-width: 800px) {
     /* other mobile tweaks… */
 
