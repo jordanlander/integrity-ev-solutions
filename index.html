@@ -310,75 +310,61 @@
       font-weight:700; margin-bottom:1rem;
     }
 
-<!-- Testimonials -->
-<section id="testimonials">
-  <h2>What Our Customers Say</h2>
-
-  <div class="testimonials-grid">
-    <!-- Sergio F. -->
-    <div class="testimonial-card">
-      <div class="avatar">SF</div>
-      <p class="name">Sergio F.</p>
-      <blockquote class="quote">
-        “Friendly staff, great pricing, and they showed up right on time—exactly what I needed.”
-        <footer>— Review on Nextdoor</footer>
-      </blockquote>
-      <div class="rating">★★★★☆</div>
-    </div>
-
-    <!-- Mike J. -->
-    <div class="testimonial-card">
-      <div class="avatar">MJ</div>
-      <p class="name">Mike J.</p>
-      <blockquote class="quote">
-        “Cody was personable and thorough—explained every step of the install and did outstanding work. Felt like working with a neighbor, not a big corporation.”
-        <footer>— Review on Nextdoor</footer>
-      </blockquote>
-      <div class="rating">★★★★★</div>
-    </div>
-
-    <!-- Johnny L. -->
-    <div class="testimonial-card">
-      <div class="avatar">JL</div>
-      <p class="name">Johnny L.</p>
-      <blockquote class="quote">
-        “Cody has been our go-to electrician for years—he’s timely and tackles everything from panel upgrades to outdoor lighting with ease.”
-        <footer>— Review on Nextdoor</footer>
-      </blockquote>
-      <div class="rating">★★★★★</div>
-    </div>
-
-    <!-- Logan Q. -->
-    <div class="testimonial-card">
-      <div class="avatar">LQ</div>
-      <p class="name">Logan Q.</p>
-      <blockquote class="quote">
-        “Highly recommend Integrity EV Solutions! Cody showed up on time and delivered professional service at a fair price.”
-        <footer>— Review on Nextdoor</footer>
-      </blockquote>
-      <div class="rating">★★★★★</div>
-    </div>
-
-    <!-- Mike J. (Renovation) -->
-    <div class="testimonial-card">
-      <div class="avatar">MJ</div>
-      <p class="name">Mike J.</p>
-      <blockquote class="quote">
-        “During our bathroom renovation, Cody handled every electrical challenge flawlessly—from wiring to fixtures. Truly professional!”
-        <footer>— Review on Nextdoor</footer>
-      </blockquote>
-      <div class="rating">★★★★★</div>
-    </div>
-  </div>
-
-  <a
-    href="https://nextdoor.com/pages/integrity-ev-solutions-llc-flowery-branch-ga/"
-    class="btn-cta"
-    target="_blank"
-  >
-    Read more on Nextdoor
-  </a>
-</section>
+    /* Testimonials */
+#testimonials {
+  background: var(--color-primary);
+  color: var(--white);
+  padding: 3rem 1rem;
+  text-align: center;
+}
+#testimonials h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: .5rem;
+}
+/* Updated intro text */
+#testimonials p.intro {
+  font-family: 'Lato', sans-serif;
+  color: var(--white);
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.testimonials-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.testimonial-card {
+  flex: 1 1 calc(33.333% - 1rem);
+  background: var(--white);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: left;
+  color: var(--black);
+}
+.avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.btn-cta {
+  background: var(--color-accent);
+  color: var(--color-primary);
+  padding: .75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  text-decoration: none;
+}
 
     /* FAQs */
     #faqs {
