@@ -441,6 +441,42 @@
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+}
+/* Hero with integrated background illustration */
+#hero {
+  position: relative;
+  background:
+    linear-gradient(rgba(0,95,46,0.85), rgba(0,95,46,0.85)),
+    url("https://raw.githubusercontent.com/jordanlander/integrity-ev-solutions/main/charger-illustration.png")
+      no-repeat bottom right;
+  background-size: contain;  /* Charger fits cleanly in the corner */
+  color: var(--white);
+  text-align: center;
+  padding: 6rem 2rem;        /* extra top/bottom breathing room */
+  overflow: hidden;          /* hide any overflow from the pseudo */
+}
+#hero .inner {
+  position: relative;
+  z-index: 1;                /* keep text above the gradient & image */
+  max-width: 800px;
+  margin: 0 auto;
+}
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  /* subtle dark vignette to focus center text */
+  background: radial-gradient(circle at center, transparent 50%, rgba(0,0,0,0.3) 100%);
+  z-index: 0;
+}
+
+/* Mobile tweak: center illustration behind the content */
+@media (max-width: 800px) {
+  #hero {
+    background-position: top center;
+    background-size: cover;
+    padding: 4rem 1rem;
+  }
 }    
   </style>
 </head>
@@ -485,14 +521,6 @@
     <h1>Powering Your Journey to a Greener Future</h1>
     <p>Family-Owned • Atlanta, GA</p>
     <a href="#receive" class="cta-hero">Get a Free Estimate</a>
-
-    <!-- Illustration: drop it in here -->
-    <div class="hero-illustration">
-      <img
-        src="https://raw.githubusercontent.com/jordanlander/integrity-ev-solutions/main/charger-illustration.png"
-        alt="Green EV charger illustration"
-      />
-    </div>
   </div>
 </section>
 
