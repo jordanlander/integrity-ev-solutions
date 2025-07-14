@@ -505,7 +505,19 @@
     background-size: cover;
     padding: 4rem 1rem;
   }
-}    
+}  
+    /* Badge bar */
+.service-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+.service-badges img {
+  height: 64px;     /* or adjust to taste */
+  object-fit: contain;
+}
   </style>
 </head>
 
@@ -566,14 +578,65 @@
   </section>
 
   <!-- Services -->
-  <section id="services">
-    <h2>Our Services</h2>
-    <p class="intro">Professional EV charger installation for homes and businesses across Atlanta</p>
-    <div class="services-grid">
-      <div class="service-card"><div class="icon-circle">🏠</div><h3>Residential Installation</h3><ul><li>Level 2 home charger installation</li><li>Electrical panel upgrades</li><li>Smart charger setup & configuration</li><li>Rebate & incentive assistance</li></ul><a href="#receive" class="btn">Get a Quote</a></div>
-      <div class="service-card"><div class="icon-circle">🏢</div><h3>Commercial Installation</h3><ul><li>Install DC fast chargers</li><li>Commission & activation</li><li>Troubleshoot/service</li></ul><a href="#receive" class="btn">Get a Quote</a></div>
+ <!-- Our Services -->
+<section id="services">
+  <h2>Our Services</h2>
+
+  <p class="intro">
+    Professional EV charger installation, general electrical work,  
+    and whole-house surge protection for homes and businesses across Atlanta
+  </p>
+
+  <!-- Cody’s badges -->
+  <div class="service-badges">
+    <img src="https://raw.githubusercontent.com/jordanlander/integrity-ev-solutions/main/dc-certified.png"
+         alt="DC Certified" />
+    <img src="https://raw.githubusercontent.com/jordanlander/integrity-ev-solutions/main/ac-certified.png"
+         alt="AC Certified" />
+    <img src="https://raw.githubusercontent.com/jordanlander/integrity-ev-solutions/main/eaton-surge.png"
+         alt="Eaton Surge Certified Contractor" />
+  </div>
+
+  <div class="services-grid">
+    <!-- Residential Installation -->
+    <div class="service-card">
+      <div class="icon-circle">🏠</div>
+      <h3>Residential Installation</h3>
+      <ul>
+        <li>Level 2 home charger installation</li>
+        <li>Electrical panel upgrades</li>
+        <li>Smart charger setup & configuration</li>
+        <li>Rebate & incentive assistance</li>
+      </ul>
+      <a href="#receive" class="btn">Get a Quote</a>
     </div>
-  </section>
+
+    <!-- Commercial Installation -->
+    <div class="service-card">
+      <div class="icon-circle">🏢</div>
+      <h3>Commercial Installation</h3>
+      <ul>
+        <li>Install DC fast chargers</li>
+        <li>Commission & activation</li>
+        <li>Troubleshoot & service</li>
+      </ul>
+      <a href="#receive" class="btn">Get a Quote</a>
+    </div>
+
+    <!-- General Electrical -->
+    <div class="service-card">
+      <div class="icon-circle">🔌</div>
+      <h3>General Electrical</h3>
+      <ul>
+        <li>Whole-house surge protection</li>
+        <li>Outlet & lighting installation</li>
+        <li>Electrical panel upgrades</li>
+        <li>Troubleshooting & repairs</li>
+      </ul>
+      <a href="#receive" class="btn">Get a Quote</a>
+    </div>
+  </div>
+</section> 
 
   <!-- About -->
   <section id="about">
