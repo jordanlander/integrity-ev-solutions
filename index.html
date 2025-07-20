@@ -496,6 +496,29 @@
       height: 64px;     /* or adjust to taste */
       object-fit: contain;
     }
+    .site-nav {
+  width: 100vw;                    /* Ensure full width */
+  background: #005F2E;             /* Solid green background */
+  color: #fff;
+  position: fixed; 
+  top: 0; left: 0; right: 0;
+  height: var(--nav-height);
+  z-index: 1000;
+}
+.site-nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;         /* Remove any white bg here */
+  padding: 0 2%;
+}
+.site-nav .menu {
+  background: transparent;         /* Also ensure menu has no bg that could be white */
+}
+
   </style>
 </head>
 
