@@ -57,95 +57,149 @@
       color: var(--black);
       line-height: 1.6;
     }
-    /* Nav Styles */
-    .site-nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      height: var(--nav-height);
-      background: var(--color-primary);
-      z-index: 1000;
-    }
-    .site-nav .brand {
-      font-family: 'Playfair Display', serif;
-      color: var(--white);
-      font-size: 1.25rem;
-      display: flex; align-items: center;
-    }
-    .site-nav .brand .tagline {
-      display: block;
-      font-family: 'Lato', sans-serif;
-      font-size: .75rem;
-      color: var(--color-secondary);
-      line-height: 1;
-    }
-    .site-nav .menu {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-    .site-nav .menu a {
-      font-family: 'Lato', sans-serif;
-      color: var(--white);
-      text-decoration: none;
-      padding: .5rem;
-      transition: color .2s;
-    }
-    .site-nav .menu a:hover {
-      color: var(--color-accent);
-    }
-    .site-nav .menu .cta {
-      background: var(--color-accent);
-      color: var(--color-primary);
-      border-radius: 4px;
-      padding: .5rem 1rem;
-      font-weight: 700;
-    }
-    .hamburger, #nav-toggle {
-      display: none;
-    }
-    @media (max-width: 800px) {
-      .site-nav .menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: var(--nav-height); left: 0; right: 0;
-        background: var(--color-primary);
-        padding-bottom: 1rem;
-      }
-      #nav-toggle:checked + .hamburger + nav .menu {
-        display: flex;
-      }
-      .hamburger {
-        display: block;
-        position: fixed;
-        top: 0; right: 1rem;
-        height: var(--nav-height);
-        line-height: var(--nav-height);
-        z-index: 1100;
-        font-size: 1.75rem;
-        cursor: pointer;
-        color: var(--white);
-        background: var(--color-primary);
-        padding: 0 .5rem;
-        border-bottom-left-radius: 4px;
-      }
-      .site-nav { flex-direction: column; }
-    }
-    section {
-      padding: 4rem 2%;
-      max-width: 1200px;
-      margin: var(--nav-height) auto 0 auto;
-    }
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      color: var(--color-primary);
-      margin-bottom: .5rem;
-    }
-    p.intro {
-      font-family: 'Lato', sans-serif;
-      color: #555;
-      margin-bottom: 2rem;
-    }
+  /* ===== NAVIGATION (clean version) ===== */
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-height);
+  background: var(--color-primary);
+  z-index: 1000;
+  font-family: 'Lato', sans-serif;
+}
+
+.site-nav .container {
+  max-width: 1250px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+.site-nav .brand {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  text-decoration: none;
+  color: var(--white);
+  line-height: 1.1;
+}
+
+.site-nav .brand img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+.site-nav .brand .name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.site-nav .brand .tagline {
+  font-size: .7rem;
+  color: var(--color-secondary);
+  font-weight: 400;
+  letter-spacing: .5px;
+}
+
+/* Desktop menu */
+.site-nav .menu {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.site-nav .menu a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: .9rem;
+  font-weight: 500;
+  padding: .35rem .25rem;
+  line-height: 1;
+  position: relative;
+  transition: color .2s;
+}
+
+.site-nav .menu a:hover {
+  color: var(--color-accent);
+}
+
+.site-nav .menu a.cta {
+  background: var(--color-accent);
+  color: var(--color-primary);
+  padding: .55rem .95rem;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.site-nav .menu a.cta:hover {
+  filter: brightness(1.05);
+}
+
+/* Hamburger */
+#nav-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-size: 1.9rem;
+  line-height: 1;
+  padding: .25rem .5rem;
+}
+
+/* Responsive behavior */
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+  .site-nav .container {
+    justify-content: space-between;
+  }
+  .site-nav .menu {
+    position: absolute;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    background: var(--color-primary);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: .75rem 1.25rem 1.25rem;
+    gap: .65rem;
+    border-bottom: 4px solid var(--color-accent);
+  }
+  /* Show when checked */
+  #nav-toggle:checked ~ .menu {
+    display: flex;
+  }
+  .site-nav .menu a {
+    padding: .4rem 0;
+    width: 100%;
+  }
+  .site-nav .menu a.cta {
+    width: auto;
+    align-self: stretch;
+    text-align: center;
+    margin-top: .25rem;
+  }
+}
+
+/* Optional: shrink menu spacing slightly on very wide screens */
+@media (min-width: 1400px) {
+  .site-nav .menu {
+    gap: 1.75rem;
+  }
+}
+
 
     /* Hero */
     #hero {
@@ -496,52 +550,30 @@
       height: 64px;     /* or adjust to taste */
       object-fit: contain;
     }
-    .site-nav {
-  width: 100vw;                    /* Ensure full width */
-  background: #005F2E;             /* Solid green background */
-  color: #fff;
-  position: fixed; 
-  top: 0; left: 0; right: 0;
-  height: var(--nav-height);
-  z-index: 1000;
-}
-.site-nav .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: transparent;         /* Remove any white bg here */
-  padding: 0 2%;
-}
-.site-nav .menu {
-  background: transparent;         /* Also ensure menu has no bg that could be white */
-}
+  
 
   </style>
 </head>
 
 <body>
-  <!-- Nav Toggle -->
-  <input type="checkbox" id="nav-toggle" />
-  <label for="nav-toggle" class="hamburger">☰</label>
+
 
   <!-- Navigation -->
   <nav class="site-nav">
-    <div class="brand">
-      <a href="#hero" style="display:flex; align-items:center; text-decoration:none; color:inherit;">
-        <img src="https://raw.githubusercontent.com/jordanlander/integrity-ev-solutions/main/logo.png"
-             alt="Integrity EV Solutions logo"
-             style="height:40px; margin-right:0.75rem;" />
-        <div>
-          <div style="font-family:'Playfair Display', serif; font-size:1.25rem;">Integrity EV Solutions</div>
-          <div class="tagline" style="font-family:'Lato',sans-serif; font-size:.75rem; color:var(--color-secondary);">
-            Family-Owned • Atlanta, GA • 📞470-262-2660
-          </div>
-        </div>
-      </a>
-    </div>
+  <div class="container">
+    <!-- Checkbox & hamburger inside nav so sibling selector works -->
+    <input type="checkbox" id="nav-toggle" aria-label="Toggle navigation" />
+    <label for="nav-toggle" class="hamburger" aria-hidden="true">☰</label>
+
+    <a href="#hero" class="brand">
+      <img src="https://raw.githubusercontent.com/jordanlander/integrity-ev-solutions/main/logo.png"
+           alt="Integrity EV Solutions logo" />
+      <div>
+        <span class="name">Integrity EV Solutions</span><br>
+        <span class="tagline">Family-Owned • Atlanta, GA • 470‑262‑2660</span>
+      </div>
+    </a>
+
     <div class="menu">
       <a href="#hero">Home</a>
       <a href="#core-values">Core Values</a>
@@ -553,7 +585,9 @@
       <a href="#receive" class="cta">Get a Quote</a>
       <a href="#contact">Contact</a>
     </div>
-  </nav>
+  </div>
+</nav>
+
 
   <!-- Hero -->
   <section id="hero">
