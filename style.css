@@ -117,10 +117,15 @@ body{
     align-items:flex-start;
     padding:1rem var(--wrap-pad) 1.5rem;
     gap:.75rem;
-    display:none;
+    display:flex;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
     border-bottom:4px solid var(--color-accent);
   }
-  #nav-toggle:checked ~ .menu{display:flex;}
+  #nav-toggle:checked ~ .menu{
+    max-height:500px;
+  }
   .menu a{padding:.45rem 0;width:100%;}
   .menu a.cta{width:auto;align-self:stretch;text-align:center;margin-top:.25rem;}
 }
