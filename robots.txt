@@ -1,4 +1,8 @@
+# robots.txt for Integrity EV Solutions
+# For details on syntax see https://www.robotstxt.org/
+
 User-agent: *
-Allow: /
+Disallow:
 
 Sitemap: https://www.integrityevsolutions.com/sitemap.xml
+Host: www.integrityevsolutions.com
