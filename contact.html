@@ -4,63 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us | Integrity EV Solutions</title>
+  <meta name="description" content="Get in touch with Integrity EV Solutions for EV charging installation and service." />
+  <link rel="canonical" href="https://www.integrityevsolutions.com/contact.html" />
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .contact-form-container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 1rem;
-    }
-    .contact-form {
-      display: grid;
-      gap: 1rem;
-    }
-    .contact-form label {
-      font-weight: 600;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-    .contact-form button {
-      padding: 0.75rem;
-      background-color: var(--color-primary, #005F2E);
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .contact-form button:hover {
-      filter: brightness(1.1);
-    }
-  </style>
 </head>
 <body>
-  <main class="contact-form-container">
-    <h1>Contact Us</h1>
-    <form class="contact-form" action="https://formsubmit.co/integrityevsolutions@gmail.com" method="POST">
-      <input type="hidden" name="_next" value="https://www.integrityevsolutions.com/thank-you.html" />
-      <input type="hidden" name="_captcha" value="false" />
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required />
+  <section class="contact-section hidden">
+    <div class="contact-wrapper">
+      <h1>Contact Us</h1>
+      <form class="contact-form" action="https://formsubmit.co/integrityevsolutions@gmail.com" method="POST">
+        <input type="hidden" name="_next" value="https://www.integrityevsolutions.com/thank-you.html" />
+        <input type="hidden" name="_captcha" value="false" />
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required />
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
 
-      <label for="phone">Phone</label>
-      <input type="tel" id="phone" name="phone" required />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" required />
 
-      <button type="submit">Send Message</button>
-    </form>
-  </main>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+  <script src="script.js"></script>
 </body>
 </html>
+
