@@ -54,6 +54,7 @@ body{
   font-weight:700;
   color:var(--white);
   white-space:nowrap;
+  text-decoration:none;
 }
 .brand .tagline{
   display:block;
@@ -62,6 +63,11 @@ body{
   font-weight:500;
   letter-spacing:.6px;
   margin-top:.15rem;
+}
+
+.brand .tagline a{
+  color:inherit;
+  text-decoration:none;
 }
 
 /* Menu */
