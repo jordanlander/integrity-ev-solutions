@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   
-<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17428301350"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-17428301350'); </script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 
@@ -21,16 +20,6 @@
     'phone_conversion_number': '470-262-2660'
   });
 </script>
-
-<!-- Event snippet for Submit lead form conversion page -->
-<script>
-  gtag('event', 'conversion', {
-      'send_to': 'AW-17428301350/ArNACM-3z4MbEKaMu_ZA',
-      'value': 1.0,
-      'currency': 'USD'
-  });
-</script>
-  
 <title>Integrity EV Solutions</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
@@ -338,8 +327,24 @@
         <blockquote>“Detailed quote upfront—no surprises. Excellent service.”</blockquote>
       </div>
       <div class="form">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScLKr9jCiiZblJeZ04x-IWetaIsQAat3eLGe8WUqPNklGnpyQ/viewform?embedded=true"
-          frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <form class="quote-form" action="https://formsubmit.co/integrityevsolutions@gmail.com" method="POST">
+          <input type="hidden" name="_next" value="https://www.integrityevsolutions.com/thank-you.html" />
+          <input type="hidden" name="_captcha" value="false" />
+
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
       </div>
     </div>
   </div>
