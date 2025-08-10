@@ -4,13 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thank You | Integrity EV Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css" />
   <style>
     .thank-you-container {
       max-width: 600px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 4rem 1rem;
       text-align: center;
+    }
+
+    .thank-you-container h1 {
+      font-family: 'Playfair Display', serif;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+    }
+
+    .thank-you-container p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
     }
   </style>
   <!-- Google tag (gtag.js) -->
@@ -28,9 +40,36 @@
   </script>
 </head>
 <body>
+  <nav class="site-nav" aria-label="Main Navigation">
+    <div class="container">
+      <div class="brand">
+        <a href="/">
+          <img src="logo.png" alt="Integrity EV Solutions logo" />
+        </a>
+        <span>
+          <a href="/" class="name">Integrity EV Solutions</a><br>
+          <span class="tagline">Family-Owned • Northern Georgia &amp; Greater Atlanta • <a href="tel:4702622660" onclick="gtag('event', 'conversion', {'send_to': 'AW-17428301350/y-kTCK7tn4MbEKaMu_ZA', 'phone_conversion_number': '470-262-2660'});">470-262-2660</a></span>
+        </span>
+      </div>
+      <input type="checkbox" id="nav-toggle" aria-label="Toggle navigation menu">
+      <label for="nav-toggle" class="hamburger" aria-hidden="true">☰</label>
+      <div class="menu">
+        <a href="/">Home</a>
+        <a href="/#core-values">Core Values</a>
+        <a href="/#services">Services</a>
+        <a href="/#about">About</a>
+        <a href="/#process">Process</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/#faqs">FAQs</a>
+        <a href="/#receive" class="cta">Get a Quote</a>
+        <a href="/#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
   <main class="thank-you-container">
     <h1>Thank You!</h1>
     <p>Your message has been sent. We will be in touch soon.</p>
+    <a href="/" class="btn-cta">Back to Home</a>
   </main>
 </body>
 </html>
