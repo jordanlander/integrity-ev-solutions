@@ -443,7 +443,11 @@ p.intro{
 }
 #faqs details[open] summary:after{content:'▴';}
 #faqs details p{margin:.65rem 0 0;line-height:1.5;color:#333;}
-#faqs .btn-cta{margin-top:1.75rem;}
+#faqs .btn-cta{
+  display:block;
+  width:fit-content;
+  margin:1.75rem auto 0;
+}
 
 /******** RECEIVE / QUOTE ********/
 #receive{background:var(--color-secondary);}
