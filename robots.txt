@@ -2,7 +2,7 @@
 # For details on syntax see https://www.robotstxt.org/
 
 User-agent: *
-Disallow:
+Allow: /
 
 Sitemap: https://www.integrityevsolutions.com/sitemap.xml
 Host: www.integrityevsolutions.com
