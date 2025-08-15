@@ -153,7 +153,7 @@ section.full-bleed > .inner-wrap{max-width:var(--wrap-max);}
   position:relative;
   background:
     linear-gradient(rgba(0,95,46,.88),rgba(0,95,46,.88)),
-    url("charger-illustration.png")
+    url("carcharger.png")
       no-repeat center right / contain,
     linear-gradient(135deg,var(--color-primary) 0%,#009955 100%);
   color:var(--white);
