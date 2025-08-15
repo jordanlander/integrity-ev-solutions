@@ -2,20 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.integrityevsolutions.com/</loc>
-    <lastmod>2025-08-10</lastmod>
+    <lastmod>2025-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
     <loc>https://www.integrityevsolutions.com/contact.html</loc>
-    <lastmod>2025-08-10</lastmod>
+    <lastmod>2025-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.integrityevsolutions.com/thank-you.html</loc>
-    <lastmod>2025-07-30</lastmod>
+    <lastmod>2025-08-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.40</priority>
+  </url>
+  <url>
+    <loc>https://www.integrityevsolutions.com/privacy-policy.html</loc>
+    <lastmod>2025-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
   </url>
 </urlset>
